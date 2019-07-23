@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import clsx from 'clsx';
 import TextField from '@material-ui/core/TextField';
+import SnackBar from './SnackBar'
 
 class Form extends Component {
   render() {
@@ -24,7 +25,10 @@ class Form extends Component {
           autoComplete="current-password"
           margin="normal"
           variant="outlined"
+          value={this.props.password}
+          onChange={this.props.onPasswordChange}
         />
+        <SnackBar />
       </div>
     );
   }
