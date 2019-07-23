@@ -11,6 +11,7 @@ class FormView extends Component {
     login: '',
     password: '',
     open: false,
+    message: '',
   }
 
   onLoginChange = e => {
@@ -31,14 +32,30 @@ class FormView extends Component {
     });
   }
 
+  validateFields = () => {
+    if (this.state.login === 'Ariel') {
+      this.setState({
+        message: 'Success'
+      })
+    } else {
+      this.setState({
+        message: 'Wrong'
+      })
+    }
+    console.log(this.state.message)
+  };
+
   handleClose = (event, reason) => {
     if (reason === 'clickaway') {
       return;
     }
 
-    this.setState({
-      setOpen: false
-    });
+    this.setState({ open: false });
+  };
+
+  onSubmitBtnClick = () => {
+    this.validateFields();
+    this.handleClick();
   }
 
   //Styles for Inputs
@@ -92,10 +109,15 @@ class FormView extends Component {
           password={this.state.password}
           onLoginChange={this.onLoginChange}
           onPasswordChange={this.onPasswordChange}
+          snackbarOpen={this.state.open}
+          handleClick={this.onSubmitBtnClick}
+          handleClose={this.handleClose}
+          message={this.state.message}
         />
         <Preview
           login={this.state.login}
           password={this.state.password}
+          message={this.state.message}
         />
       </div>
     );

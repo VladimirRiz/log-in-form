@@ -28,7 +28,11 @@ class Form extends Component {
           value={this.props.password}
           onChange={this.props.onPasswordChange}
         />
-        <SnackBar />
+        <SnackBar
+          snackbarOpen={this.props.snackbarOpen}
+          handleClick={this.props.handleClick}
+          handleClose={this.props.handleClose}
+        />
       </div>
     );
   }
