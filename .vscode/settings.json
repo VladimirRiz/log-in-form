@@ -1,0 +1,13 @@
+{
+    "files.associations": {
+      "Fastfile": "ruby"
+    },
+    "editor.codeActionsOnSave": {
+      "source.fixAll.tslint": true
+    },
+    "tslint.autoFixOnSave": true,
+    "editor.formatOnSave": true,
+    "editor.fontFamily": "Menlo, Monaco, 'Courier New', monospace",
+    "editor.tabSize": 2
+  }
+  
