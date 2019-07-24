@@ -32,6 +32,7 @@ class Form extends Component {
           snackbarOpen={this.props.snackbarOpen}
           handleClick={this.props.handleClick}
           handleClose={this.props.handleClose}
+          message={this.props.message}
         />
       </div>
     );

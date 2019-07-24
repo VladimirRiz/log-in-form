@@ -4,7 +4,6 @@ import Preview from './Preview';
 import { amber, green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 
-
 class FormView extends Component {
 
   state = {
@@ -33,7 +32,7 @@ class FormView extends Component {
   }
 
   validateFields = () => {
-    if (this.state.login === 'Ariel') {
+    if (this.state.login === 'Ariel' && this.state.password === 'Learning React') {
       this.setState({
         message: 'Success'
       })
