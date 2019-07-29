@@ -9,7 +9,9 @@ import CloseIcon from '@material-ui/icons/Close';
 import IconButton from '@material-ui/core/IconButton';
 import SnackbarContent from '@material-ui/core/SnackbarContent';
 // import WarningIcon from '@material-ui/icons/Warning';
+// import Auth from './Auth'
 
+import { Link, Redirect } from 'react-router-dom'
 // const variantIcon = {
 //   success: CheckCircleIcon,
 //   warning: WarningIcon,
@@ -18,30 +20,19 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 // };
 
 
-// onBtnClick = () => {
 
-// }
-
-// const MySnackbarContentWrapper = (props) => {
-
-//   const { variant, message } = props;
-
-
-//   return (
-
-//   );
-
-// }
 
 class SnackBar extends Component {
-
 
   render() {
     return (
       <div>
+
+        {/* <Link to='/auth'> */}
         <Button variant="outlined" className={this.props.margin} onClick={this.props.handleClick}>
           Sign In
       </Button>
+        {/* </Link> */}
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',
@@ -49,7 +40,6 @@ class SnackBar extends Component {
           }}
           open={this.props.snackbarOpen}
           autoHideDuration={1500}
-
         >
           <SnackbarContent
             className={clsx(this.props.success)}

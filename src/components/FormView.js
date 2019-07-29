@@ -3,6 +3,12 @@ import Form from './Form'
 import Preview from './Preview';
 import { amber, green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
+import UserInfo from '../data/UserInfo';
+import { Route, Redirect } from "react-router-dom";
+import Loggined from '../components/Auth'
+
+
+// console.log(UserInfo.login)
 
 class FormView extends Component {
 
@@ -11,6 +17,7 @@ class FormView extends Component {
     password: '',
     open: false,
     message: '',
+    redirectToReferrer: '',
   }
 
   onLoginChange = e => {
@@ -26,22 +33,28 @@ class FormView extends Component {
   }
 
   handleClick = () => {
-    this.setState({
-      open: true
-    });
+    if (this.state.redirectToReferrer === true) {
+      this.props.history.push('/auth')
+    }
   }
 
+
   validateFields = () => {
-    if (this.state.login === 'Ariel' && this.state.password === 'Learning React') {
+    if (this.state.login === UserInfo.login && this.state.password === UserInfo.password) {
       this.setState({
-        message: 'Success'
+        message: 'Success',
+        redirectToReferrer: true,
+      }, () => {
+        console.log(this.state.redirectToReferrer)
       })
     } else {
       this.setState({
-        message: 'Wrong'
+        message: 'Wrong',
+        redirectToReferrer: false,
       })
     }
     console.log(this.state.message)
+    console.log(this.state.redirectToReferrer)
   };
 
   handleClose = (event, reason) => {
@@ -113,11 +126,12 @@ class FormView extends Component {
           handleClose={this.handleClose}
           message={this.state.message}
         />
-        <Preview
+
+        {/* <Preview
           login={this.state.login}
           password={this.state.password}
           message={this.state.message}
-        />
+        /> */}
       </div>
     );
   }
