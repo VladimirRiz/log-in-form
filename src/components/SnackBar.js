@@ -11,7 +11,6 @@ import SnackbarContent from '@material-ui/core/SnackbarContent';
 // import WarningIcon from '@material-ui/icons/Warning';
 // import Auth from './Auth'
 
-import { Link, Redirect } from 'react-router-dom'
 // const variantIcon = {
 //   success: CheckCircleIcon,
 //   warning: WarningIcon,
@@ -28,11 +27,9 @@ class SnackBar extends Component {
     return (
       <div>
 
-        {/* <Link to='/auth'> */}
         <Button variant="outlined" className={this.props.margin} onClick={this.props.handleClick}>
           Sign In
       </Button>
-        {/* </Link> */}
         <Snackbar
           anchorOrigin={{
             vertical: 'bottom',

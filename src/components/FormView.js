@@ -35,7 +35,7 @@ class FormView extends Component {
   handleClick = () => {
     if (this.state.redirectToReferrer === true) {
       this.props.history.push('/auth')
-    }
+    } else this.setState({ open: true })
   }
 
 
