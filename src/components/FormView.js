@@ -1,11 +1,11 @@
 import React, { Component } from 'react';
 import Form from './Form'
-import Preview from './Preview';
+// import Preview from './Preview';
 import { amber, green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import UserInfo from '../data/UserInfo';
-import { Route, Redirect } from "react-router-dom";
-import Loggined from '../components/Auth'
+// import { Route, Redirect } from "react-router-dom";
+// import Loggined from '../components/Auth'
 
 
 // console.log(UserInfo.login)
@@ -34,19 +34,20 @@ class FormView extends Component {
 
   handleClick = () => {
     if (this.state.redirectToReferrer === true) {
-      this.props.history.push('/auth')
+      return this.props.history.push('/auth')
     } else this.setState({ open: true })
   }
 
 
   validateFields = () => {
     if (this.state.login === UserInfo.login && this.state.password === UserInfo.password) {
-      this.setState({
+      return (this.setState({
         message: 'Success',
         redirectToReferrer: true,
       }, () => {
         console.log(this.state.redirectToReferrer)
       })
+      )
     } else {
       this.setState({
         message: 'Wrong',
@@ -66,8 +67,9 @@ class FormView extends Component {
   };
 
   onSubmitBtnClick = () => {
-    this.validateFields();
     this.handleClick();
+    this.validateFields();
+
   }
 
   //Styles for Inputs
