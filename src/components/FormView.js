@@ -40,7 +40,7 @@ class FormView extends Component {
         message: 'Success',
         redirectToReferrer: true,
       }, () => {
-        console.log(this.state.redirectToReferrer)
+        this.handleClick()
       })
       )
     } else {
@@ -64,8 +64,8 @@ class FormView extends Component {
   };
 
   onSubmitBtnClick = () => {
-    this.handleClick();
     this.validateFields();
+    this.handleClick();
     console.log('entry')
   }
 
