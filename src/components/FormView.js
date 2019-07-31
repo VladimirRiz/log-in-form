@@ -1,14 +1,9 @@
 import React, { Component } from 'react';
 import Form from './Form'
-// import Preview from './Preview';
 import { amber, green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import UserInfo from '../data/UserInfo';
-// import { Route, Redirect } from "react-router-dom";
-// import Loggined from '../components/Auth'
 
-
-// console.log(UserInfo.login)
 
 class FormView extends Component {
 
@@ -52,6 +47,8 @@ class FormView extends Component {
       this.setState({
         message: 'Wrong',
         redirectToReferrer: false,
+      }, () => {
+        console.log(this.state.redirectToReferrer)
       })
     }
     console.log(this.state.message)
@@ -69,7 +66,7 @@ class FormView extends Component {
   onSubmitBtnClick = () => {
     this.handleClick();
     this.validateFields();
-
+    console.log('entry')
   }
 
   //Styles for Inputs

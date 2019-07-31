@@ -10,7 +10,7 @@ class App extends Component {
     return (
       <Router>
         <div className="App">
-          <Header />
+          <Route path='/' exact component={Header}></Route>
           <Route path='/' exact component={FormView}></Route>
           <Route path="/auth" component={Loggined} />
         </div>
