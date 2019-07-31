@@ -4,7 +4,6 @@ import { amber, green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import UserInfo from '../data/UserInfo';
 
-
 class FormView extends Component {
 
   state = {
@@ -35,22 +34,40 @@ class FormView extends Component {
 
 
   validateFields = () => {
-    if (this.state.login === UserInfo.login && this.state.password === UserInfo.password) {
-      return (this.setState({
-        message: 'Success',
-        redirectToReferrer: true,
-      }, () => {
-        this.handleClick()
-      })
-      )
-    } else {
-      this.setState({
-        message: 'Wrong',
-        redirectToReferrer: false,
-      }, () => {
-        console.log(this.state.redirectToReferrer)
-      })
+    for (var i = 0; i < UserInfo.length; i++) {
+      if (this.state.login === (UserInfo[i].login) && this.state.password === UserInfo[i].password) {
+        return (this.setState({
+          message: 'Success',
+          redirectToReferrer: true,
+        }, () => {
+          this.handleClick()
+        })
+        )
+      } else {
+        this.setState({
+          message: 'Wrong',
+          redirectToReferrer: false,
+        }, () => {
+          console.log(this.state.redirectToReferrer)
+        })
+      }
     }
+    // if (this.state.login === UserInfo.login && this.state.password === UserInfo.password) {
+    //   return (this.setState({
+    //     message: 'Success',
+    //     redirectToReferrer: true,
+    //   }, () => {
+    //     this.handleClick()
+    //   })
+    //   )
+    // } else {
+    //   this.setState({
+    //     message: 'Wrong',
+    //     redirectToReferrer: false,
+    //   }, () => {
+    //     console.log(this.state.redirectToReferrer)
+    //   })
+    // }
     console.log(this.state.message)
     console.log(this.state.redirectToReferrer)
   };
@@ -125,7 +142,6 @@ class FormView extends Component {
           handleClose={this.handleClose}
           message={this.state.message}
         />
-
         {/* <Preview
           login={this.state.login}
           password={this.state.password}
