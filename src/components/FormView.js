@@ -3,6 +3,7 @@ import Form from './Form'
 import { amber, green } from '@material-ui/core/colors';
 import { makeStyles } from '@material-ui/core/styles';
 import UserInfo from '../data/UserInfo';
+import Auth from './Auth'
 
 class FormView extends Component {
 
@@ -23,7 +24,7 @@ class FormView extends Component {
   onPasswordChange = e => {
     this.setState({
       password: e.target.value
-    })
+    }, () => { })
   }
 
   handleClick = () => {
@@ -52,22 +53,6 @@ class FormView extends Component {
         })
       }
     }
-    // if (this.state.login === UserInfo.login && this.state.password === UserInfo.password) {
-    //   return (this.setState({
-    //     message: 'Success',
-    //     redirectToReferrer: true,
-    //   }, () => {
-    //     this.handleClick()
-    //   })
-    //   )
-    // } else {
-    //   this.setState({
-    //     message: 'Wrong',
-    //     redirectToReferrer: false,
-    //   }, () => {
-    //     console.log(this.state.redirectToReferrer)
-    //   })
-    // }
     console.log(this.state.message)
     console.log(this.state.redirectToReferrer)
   };
@@ -142,6 +127,7 @@ class FormView extends Component {
           handleClose={this.handleClose}
           message={this.state.message}
         />
+        <Auth login={this.state.login} />
         {/* <Preview
           login={this.state.login}
           password={this.state.password}

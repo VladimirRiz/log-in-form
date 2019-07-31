@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 class Loggined extends Component {
 
+
   render() {
     return (
       <div>
